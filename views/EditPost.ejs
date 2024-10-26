@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/CreatePost.css">
+
+<div class="position-post-and-nav-container">
+<%- include("partials/header.ejs") %>
+
+<div class="space"></div>
+<div class="header-text"><h1 class="all-posts">Edit your Post</h1></div>
+
+<form action="/update-post/<%= post.id %>?_method=put" method="post" id="blog-form">
+        <input type="text" name="author" id="author" value="<%= post.author %>" required placeholder="Author" class="input">
+
+        <input type="text" name="title" id="title" value="<%= post.title %>" required placeholder="Title" class="input"> 
+
+        <textarea name="content" id="content" required><%= post.content %></textarea>
+
+    <button type="submit" value="Submit" class="save-changes-btn">Save Changes</button>
+</form>
+</div>
+
+<%- include("partials/footer.ejs") %>

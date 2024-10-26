@@ -1,0 +1,22 @@
+<%- include("partials/LoginAndRegisterHeader.ejs") %>
+
+<title>Login</title>
+</head>
+
+
+<div class="container">
+
+    <div class="header">
+        <h1>Welcome</h1>
+        <h4>Login or <span><a href="/register">create a free account</a></span></h4>
+    </div>
+
+    <form action="/login" method="post">
+
+            <input type="email" name="email" id="email" placeholder="Email address">
+
+            <input type="password" name="password" id="password" placeholder="Password">
+
+        <button type="submit" value="Submit">Log in</button>
+    </form>
+</div>

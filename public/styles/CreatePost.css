@@ -1,0 +1,37 @@
+.input, textarea{
+  color: #3b0066;
+  font-weight: 500;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 2px solid #3b0066;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 50%;
+  box-sizing: border-box;
+  outline: 0;
+}
+.input::placeholder, textarea::placeholder{
+    color: #3b0066;
+}
+textarea{
+  resize: none;
+  height: 20rem;
+}
+.save-changes-btn{
+    width: 10rem;
+}
+.space{
+    margin-bottom: 2rem;
+}
+.header-text{
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+  .input,textarea{
+    width: 80%;
+  }
+}

@@ -1,0 +1,136 @@
+@import 'shared/fonts.css';
+
+body,html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.greeting-msg-cont{
+    display: flex;
+    justify-content: center;
+}
+#greeting-msg{
+    font-size: 1.6rem;
+    color: #3b0066;
+}
+.all-posts{
+    margin: 0 7rem;
+    margin-bottom: 2rem;
+    color: #3b0066;
+}
+.parent-post-container{
+    display: flex;
+    /* width: 1200px; */
+    flex-wrap: wrap;
+    gap: 2rem;
+    /* border: 1px solid; */
+    margin-left: 8.5rem;
+}
+.post-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px solid #003366;
+    width: 23rem;
+    height: 15rem;
+    margin-bottom: 1.5rem;
+    border-radius: 2rem;
+    margin: 0;
+    white-space: no-wrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.post-container:hover h2{
+    color: white;
+}
+.post-container h2{
+    font-family: 'Gotham Rounded';
+    margin-left: 1rem;
+    color: #3b0066;
+}
+.post-container a{
+    text-decoration: none;
+    color: black;
+}
+.post-container span{
+    font-size: 14px;
+    font-weight: normal;
+}
+button{
+    height: 2.1rem;
+    width: 6rem;
+    background-color: #003366;
+}
+.create-post-link{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    align-items: center;
+    font-family: 'Gotham Rounded';
+    font-weight: normal;
+}
+.create-post-link a{
+    color: white;
+}
+.position-post-and-nav-container{
+    max-width: 1400px;
+    margin: auto;
+}
+.post-container .title{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.post-container div{
+    margin-top: -1rem;
+}
+
+/* Media query for mobile */
+
+@media (max-width: 768px) {
+    .parent-post-container{
+        margin: 0;
+        justify-content: center;
+    }
+    .all-posts{
+        margin: 0;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 557px) {
+    .nav-left{
+       margin: 0;
+       margin-left: 1rem;
+    }
+    .nav-right{
+        margin: 0;
+        margin-top: 0.8rem;
+        margin-right: 1rem;
+    }
+    .nav-middle{
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 399px) {
+    .post-container{
+        width: 18rem;
+    }
+}
+
+@media (max-width: 351px) {
+    .nav-left{
+        margin: 0;
+        margin-left: 0.5rem;
+     }
+     .nav-right{
+         margin: 0;
+         margin-top: 0.8rem;
+         margin-right: 0.5rem;
+     }
+     .nav-middle{
+         gap: 0.5rem;
+     }
+}

@@ -1,0 +1,32 @@
+<!-- view specific blogpost -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/CreatePost.css">
+    <link rel="stylesheet" href="/styles/ViewPost.css">
+
+<div class="position-post-and-nav-container">
+<%- include("partials/header.ejs") %>
+
+<div class="position-view-post-conatiner">
+    <div class="view-post-conatiner">
+        <h2>
+           <span class="title"><%= post.title %></span>
+            <br><span class="author"> by <%= post.author %></span> 
+            <br><span class="username">(<%= post.user.username %>)</span>
+        </h2>
+        <h3>
+            <%= post.content %>
+        </h3>
+    
+        <!-- <a href="/">
+            <button type="button">Back</button>
+        </a> -->
+    </div>
+</div>
+
+</div>
+
+<%- include("partials/footer.ejs") %>

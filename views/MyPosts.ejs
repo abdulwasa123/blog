@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/MyPost.css">
+
+<div class="position-my-post-and-nav-container">
+<%- include("partials/header.ejs") %>
+<% if (posts.length > 0) { %>
+    <div class="space"></div>
+    <h1 class="all-posts">Your Posts</h1>
+    <div class="parent-my-post-container">
+    <% posts.forEach(function(post) { %> <!-- create a new post and not let the previous one overrite the newer one -->
+        <div class="post-container">
+            <a href="/view/<%= post.id %>">
+                <h2>
+                    <span class="title"><%= post.title %></span>
+                    <div>
+                        <br><span class="author"> by <%= post.author %></span> 
+                    </div>
+                 </h2>
+            </a>
+            <div>
+                <a href="/edit/<%= post.id %>">
+                    <button type="button" class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+                </a>
+
+                <form action="/delete-post/<%= post.id %>?_method=delete" method="post">
+                    <button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                </form>
+            </div>
+        </div>
+    <% }) %>
+    </div>
+</div>
+
+<% } else { %>
+    <div class="create-post-link">
+        <h2>You have no published post</h2>
+        <a href="/create">Create a post</a>
+    </div>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

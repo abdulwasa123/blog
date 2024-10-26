@@ -1,0 +1,59 @@
+.position-my-post-and-nav-container{
+    max-width: 1400px;
+    margin: auto;
+}
+.parent-my-post-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-left: 8.5rem;
+}
+.space{
+    margin-bottom: 4rem;
+}
+.edit-btn{
+    margin-left: 1rem;
+    margin-top: 1rem;
+    width: 3rem;
+}
+.delete-btn{
+    margin-left: -11rem;
+    margin-top: -3.41rem;
+    background-color: rgb(243, 84, 84);
+    width: 3rem;
+}
+.post-container span{
+    font-size: 14px;
+    font-weight: normal;
+}
+.post-container .title{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.post-container div{
+    margin-top: -1rem;
+}
+.create-post-link{
+    color: #3b0066;
+}
+
+@media (max-width: 768px) {
+    .parent-my-post-container{
+        margin: 0;
+        justify-content: center;
+    }
+    .all-posts{
+        margin: 0;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 399px) {
+    .post-container{
+        width: 18rem;
+    }
+    .delete-btn{
+        margin-left: -6rem;
+    }
+}

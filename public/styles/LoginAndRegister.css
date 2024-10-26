@@ -1,0 +1,84 @@
+@import 'shared/fonts.css';
+
+body,html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+}
+.container{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 85vh; /* adding this with align items will make me able to center a div vertically */
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header h4{
+    margin-top: -1rem;
+}
+h1{
+    font-size: 2.3rem;
+    font-family: 'Gotham Rounded';
+    color: black;
+    font-weight: 600;
+    color: #3b0066;
+}
+a{
+    color: white; 
+}
+h4{
+    font-size: 17px;
+    font-family: 'Gotham Rounded';
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+}
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.3rem;
+}
+input{
+    border-radius: 0.8rem;
+    border: 2px solid #3b0066;
+    background-color: transparent;
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Gotham Rounded';
+    color: black;
+    height: 45px;
+    width: 280px;
+    padding-left: 1rem;
+}
+input::placeholder{
+    font-size: 14px;
+    font-family: 'Gotham Rounded';
+    font-weight: normal;
+    color: #3b0066;
+}
+button{
+    transition: all ease 0.5s;
+    background-color: #3b0066;
+    color: white;
+    border: none;
+    border-radius: 0.8rem;
+    height: 50px;
+    cursor: pointer;
+    font-family: 'Gotham Rounded';
+    font-size: 14px;
+    width: 300px;
+}
+button:hover {
+    background-color: transparent;
+    border: 2px solid #003366;
+    color: #003366;
+    cursor: pointer;
+}

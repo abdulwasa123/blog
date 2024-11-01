@@ -13,7 +13,13 @@ const registerUser = async (req, res) => {
         // Check if the email is already registered
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.status(400).send("User already exists.");
+            // return res.status(400).send("User already exists.");
+            return res.status(400).send(`
+                <script>
+                    alert("User already exists.");
+                    window.location.href = "/login"; // redirect to login page after alert
+                </script>
+                `); // sends the error message as an alert box
         }
 
         // Create a new user

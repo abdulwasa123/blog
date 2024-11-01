@@ -16,14 +16,25 @@ const loginUser = async (req, res) => {
         // Find user by email
         const user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).send("Enter a valid Email/Password");
+            return res.status(400).send(`
+                <script>
+                    alert("User does not exist.");
+                    window.location.href = "/login"; // redirect to login page after alert
+                </script>
+            `); // sends the error message as an alert box 
         }
 
         // Check if the password is correct
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             // return window.alert("All fields are required");
-            return res.status(400).send("Incorect email or password.");
+            return res.status(400).send(`
+                <script>
+                    alert("Incorect email or password.");
+                    window.location.href = "/login"; // redirect to login page after alert
+                </script>
+            `); // sends the error message as an alert box
+            
         }
 
         // Create JWT token

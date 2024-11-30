@@ -4,6 +4,7 @@
 const jwt = require("jsonwebtoken");
 const user = require("../models/userModel");
 
+
 const authMiddleware = async (req, res, next) => {
     const token = req.cookies.token || req.headers["authorization"];
     
@@ -18,7 +19,13 @@ const authMiddleware = async (req, res, next) => {
         res.locals.user = req.user;
         next();
     } catch (err) {
-        res.status(403).send("Session Expired: Please re-login into your account");
+        return res.status(403).send(`
+            <script>
+                alert("Session Expired: Please re-login into your account");
+                window.location.href = "/login"; // redirect to login page after alert
+            </script>
+        `); // sends the error message as an alert box 
+        // res.status(403).send("Session Expired: Please re-login into your account");
     }
 };
 

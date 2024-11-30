@@ -13,6 +13,22 @@ const getAllPosts = async (req, res) => {
     }
 };
 
+// display images
+      const getImages = async (req, res) => {
+            try {
+              const post = await Post.findById(req.params.id);
+              if (!post || !post.image) {
+                return res.status(404).send('Image not found');
+              }
+          
+              res.set('Content-Type', post.contentType);
+              res.send(post.image); // Send the image buffer as the response
+            } catch (err) {
+              res.status(500).send('Error fetching image');
+            }
+    };
+  
+
 const myPosts = async(req, res) => {
     try {
         // Assuming req.user contains the logged-in user's info
@@ -34,22 +50,6 @@ const createPost = (req, res) => {
     res.render("CreatePost.ejs");
 };
 
-// **POST** submit a new post (Private) - Modified to associate the post with the logged-in user
-const submitPost = async (req, res) => {
-    const { title, content, author } = req.body;
-    
-    try {
-        // Create a new post associated with the logged-in user (modification)
-        const newPost = new Post({ title, author, content, user: req.user }); // Ties post to user ID
-        await newPost.save(); // Save the post to MongoDB
-        res.redirect("/"); // Redirect back to the homepage
-        console.log("post submitted/created");
-        
-    } catch (err) {
-        console.log(err);
-        res.status(500).send("Error saving post.");
-    }
-};
 
 // **GET** a single post by ID (Public) - Anyone can view the post
 const viewPost = async (req, res) => {
@@ -135,106 +135,11 @@ const deletePost = async (req, res) => {
 
 module.exports = {
     getAllPosts,  // Get all posts
-    myPosts,
+    getImages,    //get images
+    myPosts,      // get only posts of logged-in user
     createPost,   // Render create post page
-    submitPost,   // Submit a new post
     viewPost,     // View a specific post
     editPost,     // Edit a post
     updatePost,   // Update a post
-    deletePost    // Delete a post
+    deletePost,   // Delete a post
 };
- 
-// // get or view all posts
-//     const getAllPosts = async (req,res) =>{
-//     try {
-//         const posts = await Post.find().sort({ createdAt: -1 }); // Find all posts, sort by newest
-//         res.render("HomePage.ejs", { posts: posts }); //add the title author and content (the data) to the homepage
-//     } catch (err) {
-//         res.status(500).send("Error fetching posts.");
-//     }      
-// };
-
-// // render the create post page
-// const createPost = (req,res) =>{
-//     res.render("CreatePost.ejs")
-// };
-
-// // route to submit post 
-// const submitPost = async (req, res) => {
-//     const { title, author, content } = req.body;
-
-//     try {
-//         const newPost = new Post({ title, author, content });
-//         await newPost.save(); // Save the post to MongoDB
-//         res.redirect("/"); // Redirect back to the homepage when submit button is clicked
-//     } catch (err) {
-//         res.status(500).send("Error saving post.");
-//     }
-// };
-
-// // Route to view each/specific post by id
-// const viewPost = async (req, res) => {
-//     try {
-//         const post = await Post.findById(req.params.id); // Find post by id
-//         if (!post) {
-//             return res.status(404).send("Post not found");
-//         }
-//         res.render("ViewPost.ejs", { post: post });
-//     } catch (err) {
-//         res.status(500).send("Error fetching post.");
-//     }
-// };
-
-// // Route to render the edit post form
-// const editPost = async (req, res) => {
-//     try {
-//         const post = await Post.findById(req.params.id); // Find post by id
-//         if (!post) {
-//             return res.status(404).send("Post not found");
-//         }
-//         res.render("EditPost.ejs", { post: post });
-//     } catch (err) {
-//         res.status(500).send("Error fetching post.");
-//     }
-// };
-
-// // Handle the post update
-// const updatePost = async (req, res) => {
-//     const { title, author, content } = req.body;
-//     try {
-//         const updatedPost = await Post.findByIdAndUpdate(
-//             req.params.id,
-//             { title, author, content },
-//             { new: true } // Return the updated document
-//         );
-//         if (!updatedPost) {
-//             return res.status(404).send("Post not found");
-//         }
-//         res.redirect("/"); // Redirect to the home page
-//     } catch (err) {
-//         res.status(500).send("Error updating post.");
-//     }
-// };
-
-// // delete a post
-// const deletePost = async (req,res) =>{
-//     try {
-//         const deletedPost = await Post.findByIdAndDelete(req.params.id);
-//         if (!deletedPost) {
-//             return res.status(404).send("Post not found");
-//         }
-//         res.redirect("/"); // Redirect to the homepage after deletion
-//     } catch (err) {
-//         res.status(500).send("Error deleting post.");
-//     }
-// };
-
-// module.exports = {
-//     getAllPosts,
-//     createPost,
-//     submitPost,
-//     viewPost,
-//     editPost,
-//     updatePost,
-//     deletePost
-// }

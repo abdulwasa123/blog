@@ -11,11 +11,20 @@
 <%- include("partials/header.ejs") %>
 <% if (posts.length > 0) { %>
     <div class="space"></div>
+
+    <form action="/upload-profile-pic" method="post" id="blog-form" enctype="multipart/form-data">
+        <input type="file" name="profile-pic" required>
+        <button type="submit" value="Submit">Upload</button>
+    </form>
+
     <h1 class="all-posts">Your Posts</h1>
     <div class="parent-my-post-container">
     <% posts.forEach(function(post) { %> <!-- create a new post and not let the previous one overrite the newer one -->
         <div class="post-container">
             <a href="/view/<%= post.id %>">
+                <div class="image-cont">
+                    <img src="/images/<%= post._id %>">
+                </div>
                 <h2>
                     <span class="title"><%= post.title %></span>
                     <div>

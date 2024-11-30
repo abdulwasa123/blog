@@ -10,10 +10,8 @@ body,html{
 .navbar{
     display: flex;
     justify-content: space-between;
-    /* border: 3px solid black; */
+    /* border: 1px solid black; */
     height: 60px;
-    border-left: 0px;
-    border-right: 0px;
     margin-bottom: 1rem;
 }
 .navbar a{
@@ -39,6 +37,13 @@ body,html{
 }
 .nav-right{
     display: flex;
+    justify-content: space-between;
+    margin-top: 0.8rem;
+    margin-right: 6rem;
+    gap: 1rem;
+}
+.nav-right .logout-cont{
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
@@ -46,11 +51,13 @@ body,html{
     border-radius: 2rem;
     width: 4rem;
     height: 2.2rem;
-    margin-top: 0.8rem;
-    margin-right: 6rem;
 }
 .nav-right a{
     color: white;
+}
+.nav-right #profile{
+    width: 25px;
+    margin-top: 0.35rem;
 }
 .navbar a:hover{
     color: #003366;

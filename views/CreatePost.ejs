@@ -9,11 +9,11 @@
 
 <div class="position-post-and-nav-container">
 <%- include("partials/header.ejs") %>
-
 <div class="space"></div>
 <div class="header-text"><h1 class="all-posts">Publish a post</h1></div>
 
-<form action="/submit-post" method="post" id="blog-form">
+<form action="/submit-post" method="post" id="blog-form" enctype="multipart/form-data">
+        <input type="file" name="image" required>
 
         <input type="text" name="author" id="author" placeholder="Author" class="input">
 

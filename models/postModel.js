@@ -14,17 +14,34 @@ const postSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        createdAt: {
+            type: Date,
+            required: true,
+            default: Date.now
+        },
+        publishDate: {
+            type: Date,
+            default: Date.now // Optional: Auto-set publishDate
+        },
         user: { 
             type: mongoose.Schema.Types.ObjectId, 
             ref: 'User',
             required: true
         },
-        createdAt: {
-            type: Date,
-            default: Date.now
+        //image upload schema objects here
+        name: {
+            type: String, 
+            required: true 
+        },
+        image: { 
+            type: Buffer, 
+            required: true 
+        },
+        contentType: { 
+            type: String, 
+            required: true 
         }
-    }
-);
+    });
 
 const Post = mongoose.model("Post", postSchema);
 

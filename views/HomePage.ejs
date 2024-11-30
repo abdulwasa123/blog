@@ -4,7 +4,7 @@
     <%- include("partials/header.ejs") %>
         <% if (user) { %>
             <div class="greeting-msg-cont">
-                <h1 id="greeting-msg">Welcome <%= user.username %> </h1>      
+                <h1 id="greeting-msg">welcome <%= user.username %> </h1>      
             </div>
         <% } %>
     <% if (posts.length > 0) { %>
@@ -13,11 +13,25 @@
         <% posts.forEach(function(post) { %> <!-- create a new post and not let the previous one overrite the newer one -->
             <div class="post-container">
                 <a href="/view/<%= post.id %>"> <!-- you click on the post to view -->
+                    <div class="image-cont">
+                        <img src="/images/<%= post._id %>">
+                    </div>
+                    <div class="post-category">
+                        <h2><span class="category username">Learning</span></h2>
+                    </div>
+                    <h2><span class="date username"></span></h2>
                     <h2>
-                        <span class="title"><%= post.title %></span>
-                        <div>
-                            <br><span class="author"> by <%= post.author %></span> 
-                            <br><span class="username">(<%= post.user.username %>)</span>
+                        <div class="title-cont">
+                            <span class="title"><%= post.title %></span>
+                        </div>
+                        <div class="post-made-by">
+                            <div class="profile-icon-cont">
+                                <img src="/profile-picture/<%= user._id %>'">
+                            </div>
+                                <div class="authorAndUsername">
+                                    <br><span class="author"> by <%= post.author %></span> 
+                                    <br><span class="username">(<%= post.user.username %>)</span>
+                                </div>
                         </div>
                      </h2>
                 </a>
@@ -34,13 +48,3 @@
  </div>
 
  <%- include("partials/footer.ejs") %>
-
- <script>
-    const post = document.getElementsByClassName("post-container");
-
-    post.addEventListener("mouseover", () => {
-
-    });
-
- </script>
-  

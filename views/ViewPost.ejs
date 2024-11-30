@@ -16,16 +16,15 @@
     <div class="view-post-conatiner">
         <h2>
            <span class="title"><%= post.title %></span>
+           <div class="image-cont">
+            <img src="/images/<%= post._id %>" id="view-post-image">
+        </div>
             <br><span class="author"> by <%= post.author %></span> 
             <br><span class="username">(<%= post.user.username %>)</span>
         </h2>
         <h3>
             <%= post.content %>
         </h3>
-    
-        <!-- <a href="/">
-            <button type="button">Back</button>
-        </a> -->
     </div>
 </div>
 

@@ -38,7 +38,7 @@ const loginUser = async (req, res) => {
         }
 
         // Create JWT token
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "10h" });
         
         // Set token in cookies (or you can set it in headers)
         res.cookie("token", token, { httpOnly: true });

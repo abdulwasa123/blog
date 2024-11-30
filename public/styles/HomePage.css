@@ -28,25 +28,35 @@ body,html{
 }
 .post-container{
     display: flex;
-    justify-content: center;
     flex-direction: column;
     border: 3px solid #003366;
     width: 23rem;
-    height: 15rem;
+    height: 30rem;
     margin-bottom: 1.5rem;
     border-radius: 2rem;
     margin: 0;
     white-space: no-wrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    border-right: 8px solid #003366;
+    border-bottom: 8px solid #003366;
+    border-bottom-right-radius: 2rem;
+    transition: all ease-in 0.2s;
+}
+.post-container:hover{
+    border-right: 13px solid #003366;
+    border-bottom: 13px solid #003366;
 }
 .post-container:hover h2{
-    color: white;
+    /* color: white; */
 }
 .post-container h2{
     font-family: 'Gotham Rounded';
     margin-left: 1rem;
+    margin-right: 1rem;
     color: #3b0066;
+    text-overflow: ellipsis;
+
 }
 .post-container a{
     text-decoration: none;
@@ -55,6 +65,17 @@ body,html{
 .post-container span{
     font-size: 14px;
     font-weight: normal;
+}
+.image-cont{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.image-cont img{
+    width: 21rem;
+    height: 14rem;
+    border-radius: 1rem;
+    margin-top: 2rem;
 }
 button{
     height: 2.1rem;
@@ -83,6 +104,38 @@ button{
 }
 .post-container div{
     margin-top: -1rem;
+}
+.post-made-by{
+    display: flex;
+    gap: 0.6rem;
+}
+.profile-icon-cont img{
+    width: 30px;
+    height: 30px;
+    margin-top: 1.9rem;
+    padding-top: 1rem;
+}
+.authorAndUsername{
+    padding-top: 1rem;
+}
+.title-cont{
+    padding-top: 0.5rem;
+    /* border: 1px solid; */
+}
+.post-category{
+    /* font-size: 20px; */
+    background-color: #003366;
+    border-radius: 1rem;
+    width: 5rem;
+    height: 2.2rem;
+    margin-left: 1rem;
+    margin-bottom: -0.3rem;
+}
+.post-category .category{
+    color: white;
+    margin-left: -0.5rem;
+    margin-top: 0.5rem;
+    position: absolute;
 }
 
 /* Media query for mobile */

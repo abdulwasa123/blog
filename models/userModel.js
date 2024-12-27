@@ -15,11 +15,11 @@ const userSchema = new mongoose.Schema(
         },
         password: {
             type: String,
-            required: true,
+            required: true
         },
         profilePicture: {
             data: Buffer,
-            contentType: String,
+            contentType: String
         }
     }
 );

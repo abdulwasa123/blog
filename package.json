@@ -17,6 +17,8 @@
     "ejs": "^3.1.10",
     "express": "^4.21.0",
     "express-ejs-layouts": "^2.5.1",
+    "filepond": "^4.32.6",
+    "filepond-plugin-image-preview": "^4.6.12",
     "jsonwebtoken": "^9.0.2",
     "method-override": "^3.0.0",
     "mongoose": "^8.6.2",

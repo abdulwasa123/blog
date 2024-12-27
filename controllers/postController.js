@@ -6,7 +6,7 @@ const getAllPosts = async (req, res) => {
         // Find all posts, sorted by newest, and populate user info for post association
         const posts = await Post.find().sort({ createdAt: -1 }).populate("user", "username").sort({ createdAt: -1 }); 
         // Render posts on the homepage with user information (added association)
-        res.render("HomePage.ejs", { posts: posts });
+        res.render("HomePage.ejs", { posts: posts, user: req.user });
     } catch (err) {
         console.log(err);
         res.status(500).send("Error fetching posts.");
